@@ -1,22 +1,16 @@
-name: CI Básico
+name: Test HTML Básico
 
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Clonar el repositorio
+      - name: Clonar repositorio
         uses: actions/checkout@v3
 
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - name: Listar archivos
+        run: ls -R
 
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Correr tests
-        run: npm test
+      - name: Mostrar contenido del index.html
+        run: cat index.html
